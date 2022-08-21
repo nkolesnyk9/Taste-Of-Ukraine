@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+<br>
+    <h1> Edit Recipe Page</h1>
+    <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+        <div class="formStyle">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%=recipe.name%>"/>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description" placeholder="Add some notes here..." value="<%=recipe.description%>"></textarea>
+        <!-- <label for="ingredients">Ingredients</label>
+        <input type="text" name="ingredients" id="ingredients" /> -->
+        
+        <input  type="submit" value="Edit Recipe">
+    </div>
+      </form>
+
+      <br>
+      <a href="/recipes"> Back to Main Page</a>
+<%- include('./partials/footer.ejs')%>

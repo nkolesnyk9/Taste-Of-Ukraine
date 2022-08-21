@@ -2,20 +2,18 @@
     <h1> Recipes Index Page</h1>
     <a  href="/recipes/new"> Add new recipe</a>
     <ul>
-        <% for (let i = 0; i < recipe.length; i++) { %>
+        <% for (let i = 0; i < recipe.length; i++) { 
+            
+            let recipeNumber = i + 1
+
+            %>
             <li class="indexItem">
-                <a class="name" href="/recipes/<%=i%>">
+                <a class="name" href="/recipes/<%=recipe[i]._id%>">
                     <%= recipe[i].name %>
                 </a>
-                <img src=" <%= recipe[i].image %>">
+                <img src="<%=recipe[i].image%>">
                 <p><%= recipe[i].description %></p>
                 
-                <!-- <div class="buttons">
-                <form action="/pokemon/<%= i %>?_method=DELETE" method="POST"> 
-                    <input class="styleEdit"  type="submit" value="DELETE"/>
-                </form> 
-                <a class="styleEditTag" href="/pokemon/<%=i %>/edit">EDIT</a> 
-            </div> -->
             </li>
        <% } %>
     </ul>

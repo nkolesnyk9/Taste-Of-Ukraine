@@ -3,14 +3,22 @@
     <div class="showPage">
     <div class="leftPart">
     <h2><%= recipe.name %></h2>
-    <img src="<%= recipe.image %>">
+    <img src="<%=recipe.image%>" alt="picture">
     <p><h3>Ingredients:</h3><%= recipe.ingredients%></p>
 </div>
 <div class="rightPart">
     <p><h3>Directions:</h3><br><%= recipe.directions %></p>
+
+    
 </div>
+<a class="editButton" href="/recipes/<%=recipe._id %>/edit"> ✍️ EDIT</a> 
 </div>
 
+
+
+<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST"> 
+    <input type="submit" value="DELETE"/>
+</form> 
 <br>
 
 <a href="/recipes"> Back to Main Page</a>

@@ -2,13 +2,21 @@
 <br>
     <h1>Create New Recipe Page</h1>
     <form action="/recipes" method="POST">
+        <div class="formStyle">
         <label for="name">Name</label>
         <input type="text" name="name" id="name"/>
+
         <label for="description">Description</label>
         <input type="text" name="description" id="description" />
+
         <label for="ingredients">Ingredients</label>
         <input type="text" name="ingredients" id="ingredients" />
-        
+        <label for="directions">Directions</label>
+        <textarea name="directions" id="directions" placeholder="Write your directions here..."></textarea>
         <input  type="submit" value="Create New Recipe">
+    </div>
       </form>
+      <br>
+      <a href="/recipes"> Back to Main Page</a>
+
 <%- include('./partials/footer.ejs')%>
