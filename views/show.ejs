@@ -1,0 +1,17 @@
+<%- include('./partials/header.ejs') %>
+    <h1> Show Index Page</h1>
+    <div class="showPage">
+    <div class="leftPart">
+    <h2><%= recipe.name %></h2>
+    <img src="<%= recipe.image %>">
+    <ul>
+        <li class="listItem"> <h3>Ingredients: </h3><%= recipe.ingredients%></li>
+    </ul>
+</div>
+<div class="rightPart">
+    <p class="showP"> <h3>Directions: </h3><br><%= recipe.directions %></p>
+</div>
+</div>
+
+<a href="/recipes"> Back to Main Page</a>
+<%- include('./partials/footer.ejs')%>

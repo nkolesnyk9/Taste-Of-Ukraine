@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') %>
+    <h1> Recipes Index Page</h1>
+    <ul>
+        <% for (let i = 0; i < recipe.length; i++) { %>
+            <li class="indexItem">
+                <a class="name" href="/recipes/<%=i%>">
+                    <%= recipe[i].name %>
+                </a>
+                <img src=" <%= recipe[i].image %>">
+                <p><%= recipe[i].description %></p>
+                
+                <!-- <div class="buttons">
+                <form action="/pokemon/<%= i %>?_method=DELETE" method="POST"> 
+                    <input class="styleEdit"  type="submit" value="DELETE"/>
+                </form> 
+                <a class="styleEditTag" href="/pokemon/<%=i %>/edit">EDIT</a> 
+            </div> -->
+            </li>
+       <% } %>
+    </ul>
+<%- include('./partials/footer.ejs')%>
