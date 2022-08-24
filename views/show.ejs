@@ -1,19 +1,33 @@
 <%- include('./partials/header.ejs') %>
-    <h1><%= recipe.name %></h1>
-    <div class="showPage">
-    <div class="leftPart">
+ <h1><%= recipe.name %></h1>
+<div class="showPage">
+
+<div class="leftPart">
     <h2><%= recipe.name %></h2>
     <img src="<%=recipe.image%>" alt="picture">
-    <p><h3>Ingredients:</h3><%= recipe.ingredients%></p>
+    <h3>Ingredients:</h3>
+    <% let ingredients = recipe.ingredients  %>
+     
+         <ul class="showUl">
+            <% for(ingredient of ingredients) { %>
+                <li> <%=ingredient%> </li>
+            <% } %>
+         </ul>     
 </div>
-<div class="rightPart">
-    <p><h3>Directions:</h3><br><%= recipe.directions %></p>
 
-    
+<div class="rightPart">
+    <p><h3>Directions:</h3>
+        <br>
+        <% let directions = recipe.directions %>
+        <ul class="showUl">
+            <% for(direction of directions) { %>
+                <li><%=direction%></li>
+           <% } %>
+        </ul>   
 </div>
+
 <a class="editButton" href="/recipes/<%=recipe._id %>/edit"> ✍️ EDIT</a> 
 </div>
-
 
 
 <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST"> 

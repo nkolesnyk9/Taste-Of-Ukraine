@@ -40,6 +40,12 @@ app.use('/recipes', recipeController)
 //     if (err) console.log(err.message)
 //     console.log('Successfully added new recipes.')
 //  })
+// Recipe.deleteMany({}).then(() => {
+//   Recipe.insertMany(recipeSeed).then((car) => {
+//     console.log("updated recipes")
+    
+//   })
+// })
 
 // //INDEX PAGE
 // app.get('/recipes', (req, res) => {

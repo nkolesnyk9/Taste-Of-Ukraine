@@ -17,6 +17,12 @@ a {
     text-transform: capitalize;
     font-size: 18px;
 }
+
+.showUl {
+    display: flex;
+    justify-content: center;
+}
+
 ul {
     display: flex;
    flex-wrap: wrap;
@@ -32,8 +38,7 @@ li {
     width: 400px;
     align-items: center;
     background-color: white;
-    
-    
+    list-style-type: circle;
 }
 
 .indexItem {
@@ -73,7 +78,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
+    text-align: center;
     font-size: 15px;
     line-height: 20px;
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
