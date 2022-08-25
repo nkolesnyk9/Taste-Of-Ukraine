@@ -1,40 +1,71 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const Recipe = require('./models/recipes.js')
 const methodOverride = require('method-override')
 
+const session = require('express-session')
+
 const { render } = require('ejs');
 
+require('dotenv').config()
+const PORT = process.env.PORT
+
+const SESSION_SECRET = process.env.SESSION_SECRET
+console.log('Here is the session secret')
+console.log(SESSION_SECRET)
+
+app.use(session({
+	secret: SESSION_SECRET,
+	resave: false, 
+	saveUninitialized: false 
+}))
+
+app.use((req, res, next) => {
+	res.locals.currentUser = req.session.currentUser
+
+	next()
+})
+
+app.use(express.static("public"))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
+
 const recipeController = require('./controllers/recipeCTRL.js')
+app.use('/recipes', recipeController)
+
+const userController = require('./controllers/userCTRL.js')
+app.use('/users', userController)
+
 
 const mongoose = require('mongoose')
+const mongoURI = process.env.MONGODB_URI
+
+mongoose.connect(mongoURI, () => {
+    console.log('the connection with mongod is established')
+  })
 
 
 // const recipe = require('./models/recipes.js')
 
 
-const mongoURI = 'mongodb://localhost:27017/recipes'
+
 const db = mongoose.connection
+
 
 const recipeSeed = require('./models/seed.js')
 const recipe = require('./models/seed.js')
 // Connect to Mongo
 
-mongoose.connect(mongoURI, () => {
-    console.log('the connection with mongod is established')
-  })
+
   
   // Error / success
   db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
   db.on('connected', () => console.log('mongo connected: ', mongoURI))
   db.on('disconnected', () => console.log('mongo disconnected'))
 
-app.use(express.static("public"))
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
-app.use('/recipes', recipeController)
+
+
 
 //   Recipe.create(recipeSeed, (err, data) => {
 //     if (err) console.log(err.message)
@@ -47,53 +78,8 @@ app.use('/recipes', recipeController)
 //   })
 // })
 
-// //INDEX PAGE
-// app.get('/recipes', (req, res) => {
-//     res.render('index.ejs', {recipe:recipe
-//     })
-// })
 
-// //ADD NEW PAGE
-// app.get('/recipes/new', (req, res) => {
-//     res.render('new.ejs')
-// })
 
-// //SHOW PAGE
-// app.get('/recipes/:id', (req, res) => {
-//     res.render('show.ejs', {
-//         recipe:recipe[req.params.id]
-//     })
-// })
-
-// // ADD CREATE PAGE
-// app.post('/recipes', (req, res) => {
-//     recipe.push(req.body)
-//     res.redirect('/recipes')
-// })
-
-// // ADD DELETE ROUTE
-// app.delete('/recipes/:id', (req, res) => {
-//     recipe.splice(req.params.id, 1)
-//     res.redirect('/recipes')
-// })
-
-// // ADD EDIT PAGE
-// app.get('/recipes/:id/edit', (req, res) => {
-//     res.render(
-//         'edit.ejs',
-//         {
-//             recipe:recipe[req.params.id],
-//             id: req.params.id
-//         }
-//     )
-// })
-
-// //ADD PUT ROUTE
-// app.put('/recipes/:id', (req,res) => {
-//     recipe[req.params.id] = req.body
-//     res.redirect('/recipes')
-// })
-
-app.listen(port, () => {
-    console.log("Server is listening 🥳")
+app.listen(PORT, () => {
+    console.log(`Server is listening  on ${PORT} 🥳`)
 })

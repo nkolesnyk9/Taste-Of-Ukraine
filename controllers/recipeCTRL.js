@@ -2,6 +2,15 @@ const express = require('express')
 const router = express.Router()
 const Recipe = require('../models/recipes.js')
 
+const authRequired = (req, res, next) => {
+	if(req.session.currentUser){
+		next()
+	} else {
+		res.send('You must be logged in to do that!')
+		res.redirect('/user/signin')
+	}
+}
+
 router.get('/', async (req, res) => {
     let recipe = await Recipe.find({})
     console.log('recipe', recipe)
@@ -43,7 +52,7 @@ router.post('/', (req, res) => {
 })
 
 // ADD DELETE ROUTE
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
     Recipe.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/recipes')
     })
@@ -51,7 +60,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // ADD EDIT PAGE
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authRequired, (req, res) => {
     Recipe.findById(req.params.id, (err, recipe) => {
         res.render(
             'edit.ejs',

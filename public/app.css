@@ -6,8 +6,12 @@ body {
     background-position: center;
     background-size: cover; */
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    position: relative;
 }
-
+.indexBody {
+    background-repeat: repeat;
+    opacity: 0.6;
+}
 p {
     color: black;
 }
