@@ -1,7 +1,6 @@
 <%- include('./partials/header.ejs') %>
-    <h1> Recipes Index Page</h1>
-    <img src="/background3.png" alt="background picture" class="indexBody"/>
-    <a  href="/recipes/new"> Add new recipe</a>
+    <h1> Recipes</h1>
+    
     <ul>
         <% for (let i = 0; i < recipe.length; i++) { 
             
@@ -18,4 +17,6 @@
             </li>
        <% } %>
     </ul>
+
+    <a  href="/recipes/new"> Add new recipe</a>
 <%- include('./partials/footer.ejs')%>

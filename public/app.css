@@ -1,5 +1,5 @@
 body {
-    color: rgb(75, 75, 75);
+    color: rgb(3, 3, 3);
     text-align: center;
     width: 1400px;
     /* background-image: url("/background2.png");
@@ -8,9 +8,27 @@ body {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     position: relative;
 }
-.indexBody {
-    background-repeat: repeat;
-    opacity: 0.6;
+
+nav {
+    background-image: url("./background3.png");;
+    height: 100px;
+    background-position: center;
+    background-size: cover; 
+    opacity: .8;
+    position: sticky;
+    top: 3px;
+}
+.navlinks{
+    
+    color: black;
+   
+}
+.links {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    background-color:rgba(254, 254, 254, 0.8);
+    text-decoration: underline;
 }
 p {
     color: black;
@@ -122,13 +140,16 @@ h3 {
     align-items: center;
 }
 
-input[type=text] {
+input[type=text],[type=password] {
     padding:8px  35px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
 input[type=text]:focus {
+    border: 3px solid #555;
+  }
+input[type=password]:focus {
     border: 3px solid #555;
   }
 
@@ -153,3 +174,5 @@ input[type=submit] {
     margin: 4px 2px;
     cursor: pointer;
   }
+
+ 
