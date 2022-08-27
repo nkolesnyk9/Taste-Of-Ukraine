@@ -1,5 +1,5 @@
 <%- include('./partials/header.ejs') %>
-    <h1>Recipes</h1>
+    <h1>Desserts</h1>
    
     <ul >
         <% for (let i = 0; i < recipe.length; i++) { 
@@ -7,6 +7,8 @@
             let recipeNumber = i + 1
 
             %>
+            <%if(recipe[i].category === "Desserts") { %> 
+                
             <li class="indexItem">
                 <a class="name" href="/recipes/<%=recipe[i]._id%>">
                     <%= recipe[i].name %>
@@ -15,8 +17,11 @@
                 <p><%= recipe[i].description %></p>
                 
             </li>
+           <% }%>
+         
        <% } %>
     </ul>
-
+    <%  console.log(recipe.category) %>
     <a  href="/recipes/new"> Add new recipe</a>
+    <a href="/recipes"> Back to Main Page</a>
 <%- include('./partials/footer.ejs')%>

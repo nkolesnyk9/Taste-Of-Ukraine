@@ -6,8 +6,8 @@ const authRequired = (req, res, next) => {
 	if(req.session.currentUser){
 		next()
 	} else {
-		res.send('You must be logged in to do that!')
-		res.redirect('/user/signin')
+		// res.send('You must be logged in to do that!')
+		res.redirect('/users/signin')
 	}
 }
 
@@ -25,6 +25,30 @@ router.get('/', (req, res) => {
     })
    
 })
+// Soups Page
+router.get('/soups', (req, res) => {
+    Recipe.find({}, (error, recipe) => {
+        res.render('soups.ejs', {
+            recipe})
+    })
+   
+})
+// Main course page
+router.get('/main', (req, res) => {
+    Recipe.find({}, (error, recipe) => {
+        res.render('main.ejs', {
+            recipe})
+    })
+   
+})
+// Desserts
+router.get('/desserts', (req, res) => {
+    Recipe.find({}, (error, recipe) => {
+        res.render('desserts.ejs', {
+            recipe})
+    })
+   
+})
 
 //ADD NEW PAGE
 router.get('/new', (req, res) => {
@@ -38,6 +62,8 @@ router.get('/:id', async (req, res) => {
         recipe:recipe
     })
 })
+
+router.get('/')
 
 // ADD CREATE PAGE
 router.post('/', (req, res) => {
