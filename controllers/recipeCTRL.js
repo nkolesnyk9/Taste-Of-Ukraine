@@ -25,6 +25,8 @@ router.get('/', (req, res) => {
     })
    
 })
+
+
 // Soups Page
 router.get('/soups', (req, res) => {
     Recipe.find({}, (error, recipe) => {
@@ -48,6 +50,11 @@ router.get('/desserts', (req, res) => {
             recipe})
     })
    
+})
+
+//About Page 
+router.get('/about',(req, res) => {
+    res.render('about.ejs')
 })
 
 //ADD NEW PAGE

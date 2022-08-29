@@ -21,8 +21,8 @@ nav {
 .navlinks{
     overflow: hidden;
     color: black;
-   
 }
+
 .dropdown {
     float: left;
     overflow: hidden;
@@ -41,16 +41,22 @@ nav {
   }
 
 .dropbtn:hover {
-    background-color: inherit;
+    background-color: white;
+    font-size: 25px;
 }
 .links {
     color: black;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 22px;
     background-color:rgba(254, 254, 254, 0.8);
-    text-decoration: underline;
+    text-decoration: underline; 
 }
 
+.links:hover {
+    background-color: white;
+    font-size: 25px;
+
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -140,9 +146,6 @@ img {
     align-items: center;
 }
 
-h3 {
-    
-}
 
 .leftPart {
     display: flex;
@@ -151,7 +154,6 @@ h3 {
     text-align: center;
     font-size: 15px;
     line-height: 20px;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
     color: black;
     margin-top: 0;
     margin-left: 10px;
@@ -167,9 +169,8 @@ h3 {
     align-items: center;
     text-align: left;
     color: black;
-
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
 }
+
 .ingredient  {
     color: red;
 }
@@ -217,10 +218,13 @@ input[type=submit] {
     background-color: white;
     border-radius: 8px;
     color: black;
-    padding: 16px 32px;
+    padding: 10px 32px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  input[type=submit]:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
  

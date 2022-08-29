@@ -1,0 +1,52 @@
+body {
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    background-image: url("./back3.jpeg");
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 { 
+    background-color: rgba(244, 228, 225, 0.6);
+    font-size: 42px;
+    font-size: bold;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.war {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 300px;
+    flex-direction: column;
+}
+p {
+    width: 800px;
+    line-height: 35px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: white;
+}
+a {
+    font-size: 25px;
+}
+.button {
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    
+}

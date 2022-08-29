@@ -26,9 +26,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-const editButton = document.getElementById("editBtn")
-editButton.addEventListener('click', addNotes)
-function addNotes () {
-  alert("You need to be logged in")
-}
