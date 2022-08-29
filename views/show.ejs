@@ -6,10 +6,10 @@
 <div class="leftPart">
     <h2><%= recipe.name %></h2>
     <img src="<%=recipe.image%>" alt="picture">
-    <h3>Ingredients:</h3>
+    <h3>Ingredients:</h3> 
     <% let ingredients = recipe.ingredients  %>
      
-         <ul class="showUl">
+         <ul  class="showUl"> 
             <% for(ingredient of ingredients) { %>
                 <li> <%=ingredient%> </li>
             <% } %>
