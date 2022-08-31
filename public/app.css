@@ -92,12 +92,23 @@ a {
 .showUl {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0;
 }
 
 li {
@@ -226,5 +237,46 @@ input[type=submit] {
 
   input[type=submit]:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
 
- 
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 780px) and (max-width: 890px) {
+    ul {
+        justify-content: center;
+    }
+    .showPage {
+        flex-direction: column;
+    }
+  }
+  
+  /* Medium screen devices (768px and above) */
+  @media only screen and (max-width: 780px) {
+    ul {
+        justify-content: center;
+    }
+
+    .showPage {
+        flex-direction: column;
+    }
+
+    .showUl {
+        flex-direction: column;
+    }
+  }
+  
+  /* Small screen devices (600px and above) */
+  @media only screen and (max-width: 500px) {
+    ul {
+        justify-content: center;
+    }
+
+    .showPage {
+        flex-direction: column;
+    }
+
+    .showUl {
+        flex-direction: column;
+    }
+   
+  }
+  

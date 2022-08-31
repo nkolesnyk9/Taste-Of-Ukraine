@@ -6,6 +6,7 @@
 <div class="leftPart">
     <h2><%= recipe.name %></h2>
     <img src="<%=recipe.image%>" alt="picture">
+    <div class="container">
     <h3>Ingredients:</h3> 
     <% let ingredients = recipe.ingredients  %>
      
@@ -14,6 +15,7 @@
                 <li> <%=ingredient%> </li>
             <% } %>
          </ul>     
+</div>
 </div>
 
 <div class="rightPart">
